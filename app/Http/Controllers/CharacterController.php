@@ -2,9 +2,84 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Character;
+use App\Models\Franchise;
 use Illuminate\Http\Request;
 
 class CharacterController extends Controller
 {
-    //
+    public function index()
+    {
+        $characters = Character::all();
+        return view('characters.index', compact('characters'));
+    }
+    
+    public function create()
+    {
+        $franchises = Franchise::all(); 
+        return view('characters.create', compact('franchises'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|max:50',
+            'description' => 'required|max:1000',
+            'franchise_id' => 'required|exists:franchises,id',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048'
+        ]);
+
+        Character::create($request->all());
+
+        $imageName = time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
+
+        return redirect()->route('characters.index')->with('success', 'Character create successfully');
+    }
+
+    public function show(Character $character)
+    {
+        return view('characters.show', compact('character'));
+    }
+
+    public function edit(string $id)
+    {
+        $character = Character::findOrFail($id);
+
+        return view('characters.edit', compact('character'));
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $character = Character::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required|max:50',
+            'description' => 'required|max:1000',
+            'franchise_id' => 'required|exists:franchises,id',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048'
+        ]);
+
+        $character->name = $request->name;
+        $character->description = $request->description;
+        $character->franchise_id = $request->franchise_id;
+        
+        if(!is_null($request->image)) {
+            $imageName = time().'.'.$request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $character->image = 'images/'.$imageName;
+        }
+
+        $character->save();
+
+        return redirect()->route('characters.index')->with('success', 'Character updated successfully.');
+    }
+
+    public function destroy(string $id)
+    {
+        $character = Character::findOrFail($id);
+        $character->delete();
+        return redirect()->route('characters.index')->with('success', 'Character deleted successfully.');
+    }
+
 }

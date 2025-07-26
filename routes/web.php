@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\FranchiseController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Franchise;
@@ -23,7 +24,15 @@ Route::get('franchises', [FranchiseController::class, 'index'])->name('franchise
 Route::get('franchises/create', [FranchiseController::class, 'create'])->name('franchises.create');
 Route::post('franchises', [FranchiseController::class, 'store'])->name('franchises.store');
 Route::get('franchises/{id}/edit', [FranchiseController::class, 'edit'])->name('franchises.edit');
-Route::put('franchises/{id}', [FranchiseController::class, 'update'])->name('franchises.updade');
+Route::put('franchises/{id}', [FranchiseController::class, 'update'])->name('franchises.update');
 Route::delete('franchises/{id}',[FranchiseController::class, 'destroy'])->name('franchises.destroy');
+
+Route::get('characters', [CharacterController::class, 'index'])->name('characters.index');
+Route::get('characters/create', [CharacterController::class, 'create'])->name('characters.create');
+Route::post('characters', [CharacterController::class, 'store'])->name('characters.store');
+Route::get('characters/{id}/edit', [CharacterController::class, 'edit'])->name('characters.edit');
+Route::put('characters/{id}', [CharacterController::class, 'update'])->name('characters.update');
+Route::delete('characters/{id}',[CharacterController::class, 'destroy'])->name('characters.destroy');
+
 
 require __DIR__.'/auth.php';

@@ -21,7 +21,7 @@ class FranchiseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|max:50',
         ]);
 
         Franchise::create($request->all());
@@ -34,24 +34,26 @@ class FranchiseController extends Controller
         return view('franshises.show', compact('franchise'));
     }
 
-    public function edit(Franchise $franchise)
+    public function edit(string $id)
     {
+        $franchise = Franchise::findOrFail($id);
+
         return view('franchises.edit', compact('franchise'));
     }
 
-    public function update(Request $request, Franchise $franchise)
+    public function update(Request $request, string $id)
     {
-        $request->validade([
-            'name' => 'required',
-        ]);
+        $franchise = Franchise::findOrFail($id);
+        $franchise->name = $request->name;
 
-        $franchise->updade($request->all());
+        $franchise->save();
 
         return redirect()->route('franchises.index')->with('success', 'Franchise updated successfully.');
     }
 
-    public function destroy(Franchise $franchise)
+    public function destroy(string $id)
     {
+        $franchise = Franchise::findOrFail($id);
         $franchise->delete();
         return redirect()->route('franchises.index')->with('success', 'Franchise deleted successfully.');
     }
