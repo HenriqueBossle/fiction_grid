@@ -29,10 +29,16 @@ class CharacterController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048'
         ]);
 
-        Character::create($request->all());
 
         $imageName = time().'.'.$request->image->extension();
         $request->image->move(public_path('images'), $imageName);
+
+        Character::create([
+        'name' => $request->name,
+        'description' => $request->description,
+        'franchise_id' => $request->franchise_id,
+        'image' => 'images/' . $imageName
+        ]);
 
         return redirect()->route('characters.index')->with('success', 'Character create successfully');
     }
@@ -45,8 +51,8 @@ class CharacterController extends Controller
     public function edit(string $id)
     {
         $character = Character::findOrFail($id);
-
-        return view('characters.edit', compact('character'));
+        $franchises = Franchise::All();
+        return view('characters.edit', compact('character', 'franchises'));
     }
 
     public function update(Request $request, string $id)

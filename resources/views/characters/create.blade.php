@@ -7,7 +7,7 @@
 </nav>
 
 <p class="text-red-500 font-semibold">É necessário ter ao menos uma franquia cadastrada para adicionar um novo personagem</p>
-    <form action="{{ route('franchises.index') }}" method="POST" class="bg-white rounded-2xl shadow-xl p-8 border border-indigo-100">
+    <form action="{{ route('characters.index') }}" method="POST" class="bg-white rounded-2xl shadow-xl p-8 border border-indigo-100" enctype="multipart/form-data">
         @csrf
             <div class="mb-8">
                 <div class="flex items-center justify-between mb-3">
@@ -51,6 +51,26 @@
                     @endforeach
                 </select>
             </div>
+
+            <div class="mb-8">
+                <div class="flex items-center justify-between mb-3">
+                    <label for="image" class="text-lg font-medium text-indigo-800">Imagem</label>
+                </div>
+
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                    <i class="fas fa-image text-indigo-400 text-xl"></i>
+                </div>
+                    <input 
+                        type="file" 
+                        name="image" 
+                        id="image"
+                        accept="image/*"
+                        class="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-indigo-100 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition text-indigo-700 bg-white file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200" 
+                        required>
+                </div>
+            </div>
+
             
             <div class="flex justify-center">
                 <button 
