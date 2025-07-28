@@ -27,13 +27,13 @@
                     
                     <!-- Nova célula para os botões -->
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-gray-100">
-                        <a href="{{ route('franchises.edit', $franchise->id) }}" class="text-indigo-600 hover:text-indigo-900">
+                        <a href="{{ route('franchises.edit', $franchise->id) }}" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                             Editar
                         </a>
                         <form action="{{ route('franchises.destroy', $franchise->id) }}" method="POST" class="inline-block ml-2">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="text-red-600 hover:text-red-800">
+                            <button type="submit" class="text-white bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
                                 Excluir
                             </button>
                         </form>
