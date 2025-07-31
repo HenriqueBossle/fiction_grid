@@ -7,7 +7,7 @@
 
 <div class="flex flex-wrap justify-center gap-6 p-6">
     @foreach($characters as $character)
-        <div class="bg-white shadow-sm border border-slate-200 rounded-lg w-64 flex flex-col">
+        <div class="bg-white shadow-sm border border-slate-200 rounded-lg w-2xs flex flex-col">
             <div class="m-2.5 overflow-hidden rounded-md h-60 flex justify-center items-center">
                 <img class="w-full h-full object-cover" src="{{ $character->image }}" alt="imagem do {{ $character->name }}" />
             </div>
