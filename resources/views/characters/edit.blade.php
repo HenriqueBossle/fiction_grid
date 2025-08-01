@@ -78,7 +78,7 @@
                     class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:opacity-90 transition transform hover:-translate-y-0.5 w-full">
                     <span class="flex items-center justify-center">
                         <i class="fas fa-plus-circle mr-3"></i>
-                        Adicionar Personagem
+                        Atualizar Personagem
                     </span>
                 </button>
             </div>

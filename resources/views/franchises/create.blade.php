@@ -6,7 +6,7 @@
     Adicionar Franquia
 </nav>
 
-    <form action="{{ route('franchises.index') }}" method="POST" class="bg-white rounded-2xl shadow-xl p-8 border border-indigo-100">
+    <form action="{{ route('franchises.store') }}" method="POST" class="bg-white rounded-2xl shadow-xl p-8 border border-indigo-100">
         @csrf
             <div class="mb-8">
                 <div class="flex items-center justify-between mb-3">
@@ -33,6 +33,5 @@
                 </button>
             </div>
         </form>
-
 
 @endsection

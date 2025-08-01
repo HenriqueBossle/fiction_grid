@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Fiction Grid</title>
 </head>
 <body>
     
-@yield('content')
-
-<nav class="bg-gray-900 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 mb-20">
+<nav class="bg-gray-900 dark:bg-gray-900 fixed w-full z-20 top-0 start-0">
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-  <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+  <a href="{{ url('/') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
       <span class="self-center text-white text-2xl font-semibold whitespace-nowrap dark:text-white">Fiction Grid</span>
   </a>
   <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -61,6 +61,8 @@
   </div>
   </div>
 </nav>
+
+@yield('content')
 
 </body>
 </html>

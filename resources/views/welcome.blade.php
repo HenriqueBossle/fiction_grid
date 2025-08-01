@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="relative">
+<div class="relative pt-16">
     <!-- Imagem de fundo -->
     <img src="{{ asset('images/personagensmarvel.jpg') }}" alt="Personagens" class="w-full h-auto">
 
@@ -21,10 +21,8 @@
     <h2 class="text-2xl font-bold">
         Sinta-se à vontade — qualquer tipo de personagem que exista na ficção é bem-vindo!!!
     </h2>
+
+    
 </div>
-
-
- 
-
 
 @endsection

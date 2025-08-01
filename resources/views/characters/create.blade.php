@@ -7,7 +7,7 @@
 </nav>
 
 <p class="text-red-500 font-semibold">É necessário ter ao menos uma franquia cadastrada para adicionar um novo personagem</p>
-    <form action="{{ route('characters.index') }}" method="POST" class="bg-white rounded-2xl shadow-xl p-8 border border-indigo-100" enctype="multipart/form-data">
+    <form action="{{ route('characters.store') }}" method="POST" class="bg-white rounded-2xl shadow-xl p-8 border border-indigo-100" enctype="multipart/form-data">
         @csrf
             <div class="mb-8">
                 <div class="flex items-center justify-between mb-3">
@@ -83,6 +83,5 @@
                 </button>
             </div>
         </form>
-
 
 @endsection
