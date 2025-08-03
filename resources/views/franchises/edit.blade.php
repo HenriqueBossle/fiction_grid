@@ -6,7 +6,7 @@
     Editar Franquia
 </nav>
 
-    <form action="{{ url('franchises/'. $franchise->id) }}" method="POST" class="bg-white rounded-2xl shadow-xl p-8 border border-indigo-100">
+    <form action="{{ route('franchises.update', $franchise->id) }}" method="POST" class="bg-white rounded-2xl shadow-xl p-8 border border-indigo-100">
         @csrf
         @method('PUT')  
                 <div class="mb-8">
@@ -18,7 +18,7 @@
                     <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
                         <i class="fas fa-film text-indigo-400 text-xl"></i>
                     </div>
-                    <input type="text" name="name" id="name" value="{{ $franchise->name }}" class="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-indigo-100 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition placeholder-indigo-300" placeholder="Ex: Star Wars, Marvel, Harry Potter..."required>
+                    <input type="text" name="name" id="name" value="{{ $franchise->name }}" class="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-indigo-100 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition placeholder-indigo-300" placeholder="Ex: Star Wars, Marvel, Harry Potter..." required>
                 </div>
             </div>
             
@@ -27,12 +27,11 @@
                     type="submit" 
                     class="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl shadow-lg hover:opacity-90 transition transform hover:-translate-y-0.5 w-full">
                     <span class="flex items-center justify-center">
-                        <i class="fas fa-plus-circle mr-3"></i>
+                        <i class="fas fa-save mr-3"></i>
                         Atualizar Franquia
                     </span>
                 </button>
             </div>
         </form>
-
 
 @endsection

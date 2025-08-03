@@ -43,9 +43,10 @@ class CharacterController extends Controller
         return redirect()->route('characters.index')->with('success', 'Character create successfully');
     }
 
-    public function show(Character $character)
+    public function show($id)
     {
-        return view('characters.show', compact('character'));
+       $character = Character::with('franchise')->findOrFail($id);
+       return view('characters.show', compact('character'));
     }
 
     public function edit(string $id)

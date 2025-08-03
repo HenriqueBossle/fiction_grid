@@ -37,6 +37,7 @@ Route::get('characters/create', [CharacterController::class, 'create'])->name('c
 ->middleware(['auth', 'verified']);
 Route::post('characters', [CharacterController::class, 'store'])->name('characters.store')
 ->middleware(['auth', 'verified']);
+Route::get('characters/{id}', [CharacterController::class, 'show'])->name('characters.show');
 Route::get('characters/{id}/edit', [CharacterController::class, 'edit'])->name('characters.edit')
 ->middleware(['auth', 'verified']);
 Route::put('characters/{id}', [CharacterController::class, 'update'])->name('characters.update')
