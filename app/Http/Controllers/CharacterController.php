@@ -8,10 +8,19 @@ use Illuminate\Http\Request;
 
 class CharacterController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $characters = Character::all();
-        return view('characters.index', compact('characters'));
+            $franchiseId = $request->query('franchise_id');
+
+    $characters = Character::with('franchise')
+        ->when($franchiseId, function ($query, $franchiseId) {
+            return $query->where('franchise_id', $franchiseId);
+        })
+        ->get();
+
+    $franchises = Franchise::all();
+
+    return view('characters.index', compact('characters', 'franchises', 'franchiseId'));
     }
     
     public function create()

@@ -4,7 +4,20 @@
 <nav class="text-center mt-16 p-8 text-2xl bg-gray-400 font-semibold">
     Personagens
 </nav>
+<form method="GET" action="{{ route('characters.index') }}" class="text-center mt-4">
+    <select name="franchise_id" onchange="this.form.submit()" class="p-2 border rounded">
+        <option value="">Todos</option>
+        @foreach($franchises as $franchise)
+            <option value="{{ $franchise->id }}" {{ ($franchiseId ?? null) == $franchise->id ? 'selected' : '' }}>
+                {{ $franchise->name }}
+            </option>
+        @endforeach
+    </select>
 
+    @if(!empty($franchiseId))
+        <a href="{{ route('characters.index') }}" class="ml-2 underline text-sm">Limpar filtro</a>
+    @endif
+</form>
 <div class="flex flex-wrap justify-center gap-6 p-6">
     @foreach($characters as $character)
         <div class="bg-white shadow-lg border border-slate-200 rounded-lg w-2xs flex flex-col hover:shadow-xl transition-shadow">

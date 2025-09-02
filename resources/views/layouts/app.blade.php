@@ -63,6 +63,29 @@
 </nav>
 
 @yield('content')
+<footer class="bg-gray-800 text-gray-300 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center border-b border-gray-700 pb-6 mb-6">
+            <!-- Nome e descrição -->
+            <div class="mb-4 md:mb-0 text-center md:text-left">
+                <h2 class="text-xl font-semibold text-white">Fiction Grid</h2>
+                <p class="text-gray-400 text-sm mt-1">Seu site de personagens favoritos</p>
+            </div>
+
+            <!-- Links rápidos -->
+            <div class="flex space-x-6 mb-4 md:mb-0">
+                <a href="{{ route('characters.index') }}" class="hover:text-white">Personagens</a>
+                <a href="{{ route('franchises.index') }}" class="hover:text-white">Franquias</a>
+                <a href="{{ url('/') }}" class="hover:text-white">Home</a>
+            </div>
+        </div>
+
+        <!-- Direitos autorais -->
+        <div class="text-center text-sm text-gray-500">
+            © {{ date('Y') }} Fiction Grid. Todos os direitos reservados.
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
