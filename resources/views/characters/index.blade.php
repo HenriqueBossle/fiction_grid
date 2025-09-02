@@ -32,6 +32,7 @@
                     <i class="fas fa-eye mr-2"></i>
                     Ver
                 </a>
+                @auth
                 <a href="{{ route('characters.edit', $character->id) }}" 
                    class="inline-flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
                     <i class="fas fa-edit mr-2"></i>
@@ -48,7 +49,7 @@
                         <i class="fas fa-trash mr-2"></i>
                         Excluir
                     </button>
-                </form>
+                </form>@endauth
             </div>
         </div>
     @endforeach

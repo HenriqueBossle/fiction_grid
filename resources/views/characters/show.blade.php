@@ -45,6 +45,7 @@
                    class="bg-gray-600 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-colors">
                     <i class="fas fa-arrow-left mr-2"></i>Voltar
                 </a>
+                @auth
                 <a href="{{ route('characters.edit', $character->id) }}" 
                    class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
                     <i class="fas fa-edit mr-2"></i>Editar
@@ -58,7 +59,7 @@
                             class="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors">
                         <i class="fas fa-trash mr-2"></i>Excluir
                     </button>
-                </form>
+                </form>@endauth
             </div>
         </div>
     </div>

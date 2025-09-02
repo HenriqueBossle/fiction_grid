@@ -17,7 +17,7 @@
                     <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
                         <i class="fas fa-film text-indigo-400 text-xl"></i>
                     </div>
-                    <input type="text" name="name" id="name" class="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-indigo-100 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition placeholder-indigo-300" placeholder="Ex: Star Wars, Marvel, DC Comics..." required>
+                    <input type="text" name="name" id="name" class="w-full pl-12 pr-4 py-4 rounded-xl border-2 border-indigo-100 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition placeholder-indigo-300" placeholder="Ex: Star Wars, Marvel, DC Comics..."required>
                 </div>
             </div>
             

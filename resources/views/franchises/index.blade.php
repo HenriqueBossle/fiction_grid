@@ -14,9 +14,11 @@
                         <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-indigo-900 uppercase tracking-wider">
                             <i class="fas fa-film mr-2"></i>Nome da Franquia
                         </th>
+                        @auth
                         <th scope="col" class="px-6 py-4 text-left text-sm font-semibold text-indigo-900 uppercase tracking-wider">
                             <i class="fas fa-cogs mr-2"></i>Ações
                         </th>
+                        @endauth
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
@@ -38,7 +40,8 @@
                             </td>
                             
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <div class="flex space-x-2">
+                               @auth
+                               <div class="flex space-x-2">
                                     <a href="{{ route('franchises.edit', $franchise->id) }}" 
                                        class="inline-flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
                                         <i class="fas fa-edit mr-2"></i>
@@ -55,7 +58,7 @@
                                             <i class="fas fa-trash mr-2"></i>
                                             Excluir
                                         </button>
-                                    </form>
+                                    </form>@endauth
                                 </div>
                             </td>
                         </tr>
