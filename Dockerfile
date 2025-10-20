@@ -49,6 +49,6 @@ COPY --from=node-builder /app/public/build ./public/build
 
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
-EXPOSE 10000
+EXPOSE 8000
 
-CMD ["php-fpm"]
+CMD php artisan serve --host=0.0.0.0 --port=8000
